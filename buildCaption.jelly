@@ -1,0 +1,30 @@
+<!--
+  Modified the script so that only the user who started the build can abort the build.
+-->
+
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+	<h1 class="build-caption page-headline">
+	  <j:if test="${it.building}">
+	    <div class="build-caption-progress-container" style="float:right">
+	      <table class="middle-align"><tr>
+	        <td>
+	          ${%Progress}:
+	        </td><td class="build-caption-progress-bar">
+	          <t:buildProgressBar build="${it}"/>
+	        </td><td>
+				
+			<j:forEach var="cause" items="${it.causes}">
+				<j:if test="${cause.userName == it.currentlyLoggedInUser}">
+				  <l:stopButton href="stop" alt="[${%cancel}]"/>
+				</j:if>
+			</j:forEach>
+	        </td>
+	      </tr></table>
+	    </div>
+	  </j:if>
+	  
+	  <l:icon alt="${it.iconColor.description}" class="${it.buildStatusIconClassName} icon-xlg" tooltip="${it.iconColor.description}"/>
+	  <d:invokeBody />
+	</h1>
+</j:jelly>
