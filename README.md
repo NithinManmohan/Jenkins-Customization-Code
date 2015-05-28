@@ -1,4 +1,4 @@
-# Jenkins-Customization-Scripts
+# Jenkins-Customization-Template
 Template to customize jenkins functionalities
 
 - Updated AbstractModelObject with the method getCurrentlyLoggedInUser to retrieve the userid of the user who is currently logged in.
