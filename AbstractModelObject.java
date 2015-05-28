@@ -105,6 +105,10 @@ public abstract class AbstractModelObject implements SearchableModelObject {
         return getDisplayName();
     }
     
+    /* Author: Nithin Manmohan
+    *  getCurrentlyLoggedInUser retrieves the userid of the currently logged in user.
+    */
+    
     public String getCurrentlyLoggedInUser() {
     	String userId =	SecurityContextHolder.getContext().getAuthentication().getName(); 
     	User u = User.get(userId, false);
