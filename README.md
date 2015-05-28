@@ -1,2 +1,2 @@
 # Jenkins-Customization-Scripts
-Scripts to customize jenkins functionalities
+Template to customize jenkins functionalities
